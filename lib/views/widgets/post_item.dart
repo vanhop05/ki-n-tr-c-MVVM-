@@ -9,10 +9,24 @@ class PostItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+      elevation: 2,
       child: ListTile(
-        leading: CircleAvatar(child: Text('${post.id}')),
-        title: Text(post.title, maxLines: 1, overflow: TextOverflow.ellipsis),
-        subtitle: Text(post.body, maxLines: 2, overflow: TextOverflow.ellipsis),
+        leading: CircleAvatar(
+          backgroundColor: Colors.blue.shade100,
+          child: Text(
+            '${post.id}',
+            style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
+          ),
+        ),
+        title: Text(
+          post.name,
+          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+        ),
+        subtitle: Text(
+          'Số thẻ SV: ${post.studentId}  •  Lớp: ${post.className}',
+          style: TextStyle(color: Colors.grey.shade700),
+        ),
+        trailing: const Icon(Icons.badge_outlined, color: Colors.blueGrey),
       ),
     );
   }

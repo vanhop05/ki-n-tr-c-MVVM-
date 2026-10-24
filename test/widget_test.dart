@@ -8,19 +8,18 @@ class MockApiService extends ApiService {
   @override
   Future<List<Post>> fetchPosts() async {
     return [
-      Post(id: 1, title: 'Bài viết thử nghiệm', body: 'Nội dung bài viết'),
+      Post(id: 1, studentId: '106200270', name: 'Võ Nguyễn Vĩ Nhân', className: '20KTMT2'),
     ];
   }
 }
 
 void main() {
-  testWidgets('Kiểm tra giao diện PostScreen hiển thị dữ liệu thành công', (tester) async {
+  testWidgets('Kiểm tra giao diện PostScreen hiển thị danh sách sinh viên', (tester) async {
     final mockService = MockApiService();
     final viewModel = PostViewModel(api: mockService);
 
     await tester.pumpWidget(MyApp(viewModel: viewModel));
 
-    // Ban đầu gọi fetchPosts
     final future = viewModel.fetchPosts();
     await tester.pump();
 
@@ -30,7 +29,8 @@ void main() {
     await future;
     await tester.pumpAndSettle();
 
-    // Hiển thị bài viết
-    expect(find.text('Bài viết thử nghiệm'), findsOneWidget);
+    // Hiển thị tên sinh viên
+    expect(find.text('Võ Nguyễn Vĩ Nhân'), findsOneWidget);
+    expect(find.textContaining('106200270'), findsOneWidget);
   });
 }

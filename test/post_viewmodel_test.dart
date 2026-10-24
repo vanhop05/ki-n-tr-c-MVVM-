@@ -7,8 +7,8 @@ class MockSuccessApiService extends ApiService {
   @override
   Future<List<Post>> fetchPosts() async {
     return [
-      Post(id: 1, title: 'Title 1', body: 'Body 1'),
-      Post(id: 2, title: 'Title 2', body: 'Body 2'),
+      Post(id: 1, studentId: '106200270', name: 'Võ Nguyễn Vĩ Nhân', className: '20KTMT2'),
+      Post(id: 2, studentId: '106210077', name: 'Nguyễn Xuân Bách', className: '21DT2'),
     ];
   }
 }
