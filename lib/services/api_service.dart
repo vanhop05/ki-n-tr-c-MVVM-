@@ -2,9 +2,12 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 import '../models/post_model.dart';
 
+/// Lớp phụ trách gọi API và chuyển dữ liệu trả về thành các model.
 class ApiService {
   static const _url = 'https://jsonplaceholder.typicode.com/posts';
 
+  /// Tải danh sách bài viết từ JSONPlaceholder.
+  /// Ném [Exception] nếu request thất bại hoặc quá thời gian chờ.
   Future<List<Post>> fetchPosts() async {
     final res = await http.get(Uri.parse(_url))
         .timeout(const Duration(seconds: 10));

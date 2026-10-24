@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 
+/// Widget hiển thị thông báo lỗi và nút thử tải lại.
 class ErrorView extends StatelessWidget {
   final String error;
   final VoidCallback onRetry;
 
+  /// Nhận nội dung lỗi và callback khi người dùng bấm thử lại.
   const ErrorView({super.key, required this.error, required this.onRetry});
 
+  /// Xây dựng giao diện thông báo lỗi.
   @override
   Widget build(BuildContext context) {
     return Center(
