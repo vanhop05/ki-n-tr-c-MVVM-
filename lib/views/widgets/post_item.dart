@@ -11,16 +11,9 @@ class PostItem extends StatelessWidget {
       margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
       elevation: 1.5,
       child: ListTile(
-        leading: CircleAvatar(
-          backgroundColor: Colors.blue.shade100,
-          child: Text(
-            '${post.id}',
-            style: const TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
-          ),
-        ),
         title: Text(
           post.name,
-          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
+          style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w500),
         ),
       ),
     );
