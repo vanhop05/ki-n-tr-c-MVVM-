@@ -8,7 +8,7 @@ class MockApiService extends ApiService {
   @override
   Future<List<Post>> fetchPosts() async {
     return [
-      Post(id: 1, studentId: '106200270', name: 'Võ Nguyễn Vĩ Nhân', className: '20KTMT2'),
+      Post(id: 1, name: 'Võ Nguyễn Vĩ Nhân'),
     ];
   }
 }
@@ -31,6 +31,5 @@ void main() {
 
     // Hiển thị tên sinh viên
     expect(find.text('Võ Nguyễn Vĩ Nhân'), findsOneWidget);
-    expect(find.textContaining('106200270'), findsOneWidget);
   });
 }
