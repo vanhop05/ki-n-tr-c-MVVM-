@@ -3,10 +3,13 @@ import '../viewmodels/post_viewmodel.dart';
 import 'widgets/error_view.dart';
 import 'widgets/post_item.dart';
 
+/// Màn hình hiển thị danh sách bài viết theo trạng thái ViewModel.
 class PostScreen extends StatelessWidget {
   final PostViewModel viewModel;
+  /// Tạo màn hình với [viewModel] bắt buộc.
   const PostScreen({super.key, required this.viewModel});
 
+  /// Hiển thị loading, lỗi hoặc danh sách dựa trên [viewModel.status].
   @override
   Widget build(BuildContext context) {
     return Scaffold(

@@ -3,15 +3,12 @@ import 'package:http/http.dart' as http;
 import '../models/post_model.dart';
 
 class ApiService {
-  // Đường dẫn REST API danh sách sinh viên
-  static const _url = 'students.json';
+  // REST API online chứa danh sách 28 sinh viên trên Internet
+  static const _url = 'https://extendsclass.com/api/json-storage/bin/dfccbbe';
 
   Future<List<Post>> fetchPosts() async {
-    final uri = Uri.base.scheme.startsWith('http')
-        ? Uri.base.resolve(_url)
-        : Uri.parse(_url);
-
-    final res = await http.get(uri).timeout(const Duration(seconds: 10));
+    final res = await http.get(Uri.parse(_url))
+        .timeout(const Duration(seconds: 10));
 
     if (res.statusCode == 200) {
       final List list = jsonDecode(res.body);

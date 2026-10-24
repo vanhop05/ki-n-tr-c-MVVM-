@@ -8,8 +8,8 @@ class PostItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
-      elevation: 2,
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+      elevation: 1.5,
       child: ListTile(
         leading: CircleAvatar(
           backgroundColor: Colors.blue.shade100,
@@ -20,13 +20,8 @@ class PostItem extends StatelessWidget {
         ),
         title: Text(
           post.name,
-          style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+          style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 16),
         ),
-        subtitle: Text(
-          'Số thẻ SV: ${post.studentId}  •  Lớp: ${post.className}',
-          style: TextStyle(color: Colors.grey.shade700),
-        ),
-        trailing: const Icon(Icons.badge_outlined, color: Colors.blueGrey),
       ),
     );
   }
