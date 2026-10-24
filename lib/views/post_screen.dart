@@ -16,7 +16,38 @@ class PostScreen extends StatelessWidget {
         builder: (context, _) {
           switch (viewModel.status) {
             case ViewStatus.loading:
-              return const Center(child: CircularProgressIndicator());
+  return Center(
+    child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        const Text(
+          'LOADING....',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            letterSpacing: 2, // Giãn khoảng cách các chữ cái
+          ),
+        ),
+        const SizedBox(height: 12),
+        // Khung viền hình viên thuốc
+        Container(
+          width: 220,
+          height: 24,
+          padding: const EdgeInsets.all(2),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50),
+            border: Border.all(color: Colors.black, width: 2), // Viền đen bên ngoài
+          ),
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(50), // Bo tròn phần ruột bên trong
+            child: const LinearProgressIndicator(
+              color: Colors.green,           // Dải màu xanh lá cây
+              backgroundColor: Colors.white, // Nền trắng bên trong
+            ),
+          ),
+        ),
+      ],
+    ),
+  );
             case ViewStatus.error:
               return ErrorView(
                 error: viewModel.error,
@@ -30,7 +61,7 @@ class PostScreen extends StatelessWidget {
                   itemBuilder: (_, i) => PostItem(post: viewModel.posts[i]),
                 ),
               );
-            default:
+            default:  
               return const SizedBox();
           }
         },
