@@ -1,30 +1,36 @@
-// This is a basic Flutter widget test.
-//
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
-
-import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
 import 'package:chu_de_4/main.dart';
+import 'package:chu_de_4/models/post_model.dart';
+import 'package:chu_de_4/services/api_service.dart';
+import 'package:chu_de_4/viewmodels/post_viewmodel.dart';
+
+class MockApiService extends ApiService {
+  @override
+  Future<List<Post>> fetchPosts() async {
+    return [
+      Post(id: 1, title: 'Bài viết thử nghiệm', body: 'Nội dung bài viết'),
+    ];
+  }
+}
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  testWidgets('Kiểm tra giao diện PostScreen hiển thị dữ liệu thành công', (tester) async {
+    final mockService = MockApiService();
+    final viewModel = PostViewModel(api: mockService);
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    await tester.pumpWidget(MyApp(viewModel: viewModel));
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
+    // Ban đầu gọi fetchPosts
+    final future = viewModel.fetchPosts();
     await tester.pump();
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Đang tải
+    expect(find.byType(MyApp), findsOneWidget);
+
+    await future;
+    await tester.pumpAndSettle();
+
+    // Hiển thị bài viết
+    expect(find.text('Bài viết thử nghiệm'), findsOneWidget);
   });
 }
