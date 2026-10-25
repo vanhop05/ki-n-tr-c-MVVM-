@@ -28,9 +28,8 @@ lib/
 
 | Thành viên | Nhiệm vụ đảm nhiệm | Tệp tin phụ trách | Kết quả |
 | :--- | :--- | :--- | :--- |
-| **Trần Văn Hợp** | **Tầng Dữ liệu & Mạng**<br>- Thiết kế Model & DTO<br>- Đóng gói REST API Service | `models/post_model.dart`<br>`services/api_service.dart` | Parse JSON an toàn kiểu, bắt mã HTTP, ném Custom Exception |ây dựng View "sạch" không gọi API<br>- Tối ưu Rebuild với `ListenableBuilder` | `views/post_screen.dart`<br>`views/widgets/post_item.dart` | Hiển thị 100 bài viết, hỗ trợ vuốt làm mới (`RefreshIndicator`) |
-| **Mai Tuấn An** | **Tầng ViewModel & Kiểm thử**<br>- Logic nghiệp vụ & quản lý 3 trạng thái<br>- Viết Unit Test độc lập | `viewmodels/post_viewmodel.dart`<br>`test/post_viewmodel_test.dart` | Điều phối UDF, kiểm thử Mock Service không cần mở UI |
- Xử lý trạng thái Loading & Error/Retry<br>- Biên soạn Slide thuyết trình | `views/widgets/error_view.dart`<br>Slide báo cáo (18 trang) | Giao diện thân thiện khi rớt mạng, hoàn thiện tài liệu báo cáo |
+| **Trần Văn Hợp** | **Tầng Dữ liệu & Mạng**<br>- Thiết kế Model & DTO<br>- Đóng gói REST API Service | `models/post_model.dart`<br>`services/api_service.dart` | Parse JSON an toàn kiểu, bắt mã HTTP, ném Custom Exception | Xử lý trạng thái Loading & Error/Retry<br>- Biên soạn Slide thuyết trình | `views/widgets/error_view.dart`<br> | Xây dựng View "sạch" không gọi API<br>- Tối ưu Rebuild với `ListenableBuilder` | `views/post_screen.dart`<br>`views/widgets/post_item.dart` | Hiển thị 100 bài viết, hỗ trợ vuốt làm mới (`RefreshIndicator`) |
+| **Mai Tuấn An** | **Tầng ViewModel & Kiểm thử**<br>- Logic nghiệp vụ & quản lý 3 trạng thái<br>- Viết Unit Test độc lập | `viewmodels/post_viewmodel.dart`<br>`test/post_viewmodel_test.dart` | Điều phối UDF, kiểm thử Mock Service không cần mở UI | <br>Slide báo cáo (18 trang) | Giao diện thân thiện khi rớt mạng, hoàn thiện tài liệu báo cáo |
 ---
 
 ## 3. Các Trạng Thái Trực Quan (UI States)
