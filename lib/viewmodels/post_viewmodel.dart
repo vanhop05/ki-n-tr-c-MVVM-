@@ -18,10 +18,10 @@ class PostViewModel extends ChangeNotifier {
 
   Future<void> fetchPosts() async {
     _status = ViewStatus.loading;
-    notifyListeners(); // 1. Báo View hiển thị Loading
+    notifyListeners(); // 1. Hiển thị Loading
     try {
       _posts = await _api.fetchPosts();
-      _status = ViewStatus.success; // 2. Thành công -> cập nhật dữ liệu
+      _status = ViewStatus.success; // 2. Thành công cập nhật dữ liệu 28 sinh viên
     } catch (e) {
       _error = 'Không thể kết nối Internet hoặc Lỗi kết nối mạng.\nVui lòng kiểm tra lại!';
       _status = ViewStatus.error; // 3. Báo lỗi
